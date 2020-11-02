@@ -5,15 +5,15 @@ import org.openqa.selenium.support.FindBy;
 import com.library.utils.ConfigurationReader;
 public class LoginPage extends BasePage{
 
-    @FindBy(id = "prependedInput")
-    private WebElement username;
+    @FindBy(xpath = "//*[@id=\"inputEmail\"]")
+    private WebElement useremail;
 
-    @FindBy(id = "prependedInput2")
+    @FindBy(xpath = "//*[@id=\"inputPassword\"]")
     private WebElement password;
 
-    @FindBy(css = "[class='alert alert-error']")
-    private WebElement warningMessage;
-
+  //  @FindBy(css = "[class='alert alert-error']")
+ //   private WebElement warningMessage;
+/*
     public String getWarningMessageText() {
         try {
             Thread.sleep(5000);
@@ -23,8 +23,10 @@ public class LoginPage extends BasePage{
         return warningMessage.getText().trim();
     }
 
-    public void login(String usernameValue, String passwordValue) {
-        username.sendKeys(usernameValue);
+
+ */
+    public void login(String usernameEmail, String passwordValue) {
+        useremail.sendKeys(usernameEmail);
         password.sendKeys(passwordValue, Keys.ENTER);
     }
 
@@ -32,7 +34,7 @@ public class LoginPage extends BasePage{
         String userEmail = ConfigurationReader.getProperty("student.email");
         String userPassWord = ConfigurationReader.getProperty("student.password");
 
-        username.sendKeys(userEmail);
+        useremail.sendKeys(userEmail);
         password.sendKeys(userPassWord, Keys.ENTER);
 
 
@@ -49,7 +51,7 @@ public class LoginPage extends BasePage{
             usernameValue = ConfigurationReader.getProperty("storemanager.username");
         }
 
-        username.sendKeys(usernameValue);
+        useremail.sendKeys(usernameValue);
         password.sendKeys(passwordValue, Keys.ENTER);
     }
 }

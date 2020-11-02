@@ -15,8 +15,17 @@ public class LoginStepDefinitions {
         Driver.getDriver().get(URL);
     }
     @When("user logs in as a student")
-    public void user_logs_in_as_a_student() {
-
+    public void user_logs_in_as_a_student() throws InterruptedException {
+        loginPage.login();
+        Thread.sleep(3000);
     }
+    @Then("user should see dashboard page")
+    public void user_should_see_dashboard_page() {
+        String expected = "Library";
+        String actual = loginPage.getPageTitleText().trim();
 
+        Assert.assertEquals("Title is not correct!", expected, actual);
+        System.out.println("I see the Dashboard page!");
+        Driver.closeDriver();
+    }
 }

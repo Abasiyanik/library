@@ -11,30 +11,22 @@ import java.util.List;
 public class BasePage {
 
 
-    @FindBy(className = "oro-subtitle")
-    protected WebElement pageSubTitle;
+    @FindBy(xpath = "/html/head/title")
+    protected WebElement pageTitle;
 
-    @FindBy(xpath = "(//button[contains(text(),'Save and Close')])[1]")
-    protected WebElement saveAndCloseBtn;
+ //   @FindBy(xpath = "(//button[contains(text(),'Save and Close')])[1]")
+  //  protected WebElement saveAndCloseBtn;
 
-    @FindBy(css = "[class='loader-mask']")
-    protected List<WebElement> loaderMask;
+ //   @FindBy(css = "[class='loader-mask']")
+//    protected List<WebElement> loaderMask;
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public String getPageSubTitleText() {
-        return pageSubTitle.getText();
-    }
+    public String getPageTitleText() { return pageTitle.getText();}}
 
-    /**
-     * Method for navigation in vytrack app
-     *
-     * @param tab     , for example: Fleet, Dashboard, Sales, Activities..
-     * @param module, one of the values that will be visible after clicking on the tab.
-     *                For Fleet, these are the modules: Vehicles, Vehicle Odometer, Vehicle Costs, etc..
-     */
+    /*
     public void navigateTo(String tab, String module) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
         String tabXpath = "//*[contains(text(),'" + tab + "') and @class='title title-level-1']";
@@ -61,3 +53,6 @@ public class BasePage {
         BrowserUtils.clickOnElement(saveAndCloseBtn);
     }
 }
+
+
+     */
