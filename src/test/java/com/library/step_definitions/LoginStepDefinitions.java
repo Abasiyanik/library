@@ -26,7 +26,7 @@ public class LoginStepDefinitions {
 
         Assert.assertEquals("Title is not correct!", expected, actual);
         System.out.println("I see the Dashboard page!");
-        System.out.println(actual);
+        System.out.println("Actual text"+actual);
         Driver.closeDriver();
     }
 }
