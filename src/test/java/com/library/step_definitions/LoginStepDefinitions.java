@@ -21,11 +21,12 @@ public class LoginStepDefinitions {
     }
     @Then("user should see dashboard page")
     public void user_should_see_dashboard_page() {
-        String expected = "Library";
-        String actual = loginPage.getPageTitleText().trim();
+        String expected = "Book Management";
+        String actual = loginPage.getPageVerificationText().trim();
 
         Assert.assertEquals("Title is not correct!", expected, actual);
         System.out.println("I see the Dashboard page!");
+        System.out.println(actual);
         Driver.closeDriver();
     }
 }

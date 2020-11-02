@@ -11,8 +11,8 @@ import java.util.List;
 public class BasePage {
 
 
-    @FindBy(xpath = "/html/head/title")
-    protected WebElement pageTitle;
+    @FindBy(xpath = "//*[@id=\"books\"]/div[1]/div[1]/h3")
+    protected WebElement pageVerification;
 
  //   @FindBy(xpath = "(//button[contains(text(),'Save and Close')])[1]")
   //  protected WebElement saveAndCloseBtn;
@@ -24,7 +24,7 @@ public class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public String getPageTitleText() { return pageTitle.getText();}}
+    public String getPageVerificationText() { return pageVerification.getText();}}
 
     /*
     public void navigateTo(String tab, String module) {
